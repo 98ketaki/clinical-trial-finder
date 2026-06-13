@@ -1,0 +1,106 @@
+[
+  {
+    "name": "EGFR+ stage IV adenocarcinoma",
+    "profile": {
+      "cancer_type": "lung cancer",
+      "stage": "IV",
+      "histology": "Adenocarcinoma",
+      "age": 60,
+      "sex": "FEMALE",
+      "ecog": 1,
+      "biomarkers": [{"name": "EGFR", "status": "positive"}],
+      "prior_treatments": ["Osimertinib"]
+    },
+    "expect": {
+      "min_results": 1,
+      "few_results_prompt": false,
+      "relevance": {"biomarker_surfaced": "EGFR", "min_top_similarity": 0.7}
+    }
+  },
+  {
+    "name": "ALK+ NSCLC, untreated",
+    "profile": {
+      "cancer_type": "non-small cell lung cancer",
+      "stage": "IV",
+      "histology": "Adenocarcinoma",
+      "age": 45,
+      "sex": "MALE",
+      "ecog": 0,
+      "biomarkers": [{"name": "ALK", "status": "positive"}],
+      "prior_treatments": []
+    },
+    "expect": {
+      "min_results": 1,
+      "relevance": {"biomarker_surfaced": "ALK", "min_top_similarity": 0.7}
+    }
+  },
+  {
+    "name": "Extensive-stage small cell lung cancer",
+    "profile": {
+      "cancer_type": "small cell lung cancer",
+      "stage": "IV",
+      "histology": "Small cell lung cancer (SCLC)",
+      "age": 68,
+      "sex": "MALE",
+      "ecog": 2,
+      "biomarkers": [],
+      "prior_treatments": ["Carboplatin", "Etoposide"]
+    },
+    "expect": {
+      "min_results": 1,
+      "relevance": {"min_top_similarity": 0.7}
+    }
+  },
+  {
+    "name": "KRAS G12C, post-chemo",
+    "profile": {
+      "cancer_type": "non-small cell lung cancer",
+      "stage": "IV",
+      "histology": "Adenocarcinoma",
+      "age": 64,
+      "sex": "FEMALE",
+      "ecog": 1,
+      "biomarkers": [{"name": "KRAS_G12C", "status": "positive"}],
+      "prior_treatments": ["Pembrolizumab", "Pemetrexed"]
+    },
+    "expect": {
+      "min_results": 1,
+      "relevance": {"min_top_similarity": 0.7}
+    }
+  },
+  {
+    "name": "Minimal profile (cancer type only)",
+    "profile": {
+      "cancer_type": "lung cancer",
+      "stage": null,
+      "histology": null,
+      "age": null,
+      "sex": null,
+      "ecog": null,
+      "biomarkers": [],
+      "prior_treatments": []
+    },
+    "expect": {
+      "min_results": 3,
+      "few_results_prompt": false
+    }
+  },
+  {
+    "name": "Over-constrained (no recruiting site in region)",
+    "profile": {
+      "cancer_type": "lung cancer",
+      "stage": "IV",
+      "histology": "Adenocarcinoma",
+      "age": 55,
+      "sex": "FEMALE",
+      "ecog": 1,
+      "biomarkers": [],
+      "prior_treatments": [],
+      "location": "Antarctica"
+    },
+    "expect": {
+      "expect_zero": true,
+      "few_results_prompt": true
+    }
+  }
+]
